@@ -1,0 +1,10 @@
+allure-report/
+allure-results/
+node_modules/
+.vscode
+temp
+*.bak
+package-lock.json
+screenshots
+temp
+.env
