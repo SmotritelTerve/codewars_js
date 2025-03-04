@@ -37,9 +37,44 @@ const highAndLow_2 = (numbers) => {
     }
 
     const resultedString = max + ' ' + min;
-    console.log(resultedString)
+    console.log(resultedString);
     // return resultedString;
 }
+
+// Solution 3 with map
+const highAndLow_3 = (numbers) => {
+
+    const arr = numbers.split(' ').map(Number);
+
+    const max = Math.max(...arr);
+    const min = Math.min(...arr);
+
+    const resultedString = `${max} ${min}`;
+    console.log(resultedString);
+};
+
+// Solution 4 with input validation (in case the string is empty or invalid)
+const highAndLow_4 = (numbers) => {
+    // Handle empty string or invalid input
+    if (!numbers || numbers.trim() === "") {
+        return "Invalid input";
+    }
+
+    // Split and convert to numbers
+    const arr = numbers.split(' ').map(Number);
+
+    // Check if all elements are valid numbers
+    if (arr.some(isNaN)) {
+        return "Invalid input";
+    }
+
+    const max = Math.max(...arr);
+    const min = Math.min(...arr);
+
+    // return `${max} ${min}`;
+    const resultedString = `${max} ${min}`;
+    console.log(resultedString);
+};
 
 
 console.log("Solution 1")
@@ -53,3 +88,15 @@ highAndLow_2("8 3 -5 42 -1 0 0 -9 4 7 4 -4");
 highAndLow_2("1 2 3 4 5");
 highAndLow_2("1 2 -3 4 5");
 highAndLow_2("1 9 3 4 -5");
+
+console.log("Solution 3")
+highAndLow_3("8 3 -5 42 -1 0 0 -9 4 7 4 -4");
+highAndLow_3("1 2 3 4 5");
+highAndLow_3("1 2 -3 4 5");
+highAndLow_3("1 9 3 4 -5");
+
+console.log("Solution 4")
+highAndLow_4("8 3 -5 42 -1 0 0 -9 4 7 4 -4");
+highAndLow_4("1 2 3 4 5");
+highAndLow_4("1 2 -3 4 5");
+highAndLow_4("1 9 3 4 -5");
